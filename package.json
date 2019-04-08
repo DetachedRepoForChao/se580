@@ -1,0 +1,40 @@
+{
+  "name": "web-front-end",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "author": "Christopher Watson",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "chart.js": "^2.7.3",
+    "express": "^4.16.4",
+    "if-env": "^1.0.4",
+    "morgan": "^1.9.1",
+    "react": "^16.8.1",
+    "react-chartjs-2": "^2.7.4",
+    "react-dom": "^16.8.1",
+    "react-scripts": "2.1.5"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
